@@ -97,20 +97,19 @@ h1,h2,h3,p{margin:0}
 
 /* ---------- sections ---------- */
 .section{padding-top:clamp(80px,10vw,150px)}
-.grille-label{display:grid;grid-template-columns:minmax(120px,1.2fr) 10.8fr;column-gap:32px}
-.grille-label>.label{padding-top:14px}
+.grille-label{display:block}
 
 /* cartes numérotées en décalé */
 .cartes{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:64px;align-items:start}
-.carte{position:relative;padding-top:34px}
+.carte{position:relative;padding-top:clamp(52px,5.2vw,78px)}
 .carte:nth-child(2){margin-top:60px}
 .carte:nth-child(3){margin-top:0}
 .carte:nth-child(4){margin-top:72px}
-.num{position:absolute;top:0;right:4px;font-stretch:125%;font-weight:800;font-size:clamp(56px,6vw,92px);line-height:.8;color:#fff;letter-spacing:-.03em;z-index:0}
+.num{position:absolute;top:0;right:6px;font-stretch:125%;font-weight:800;font-size:clamp(60px,6vw,96px);line-height:.8;color:var(--sable);letter-spacing:-.03em;z-index:2}
 .carte-img{position:relative;z-index:1;border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.6;background:#DCD6CA}
 .carte-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .carte:hover .carte-img img{transform:scale(1.05)}
-.carte small{display:block;font-size:12px;margin:16px 0 8px}
+.carte h3{margin-top:18px}
 .carte h3{display:flex;align-items:center;gap:10px;font-weight:500;font-size:clamp(20px,1.6vw,24px)}
 .carte:hover h3 .rond{transform:translateX(4px)}
 .carte p{color:var(--gris);font-size:14px;margin-top:10px;max-width:30ch}
@@ -144,7 +143,7 @@ h1,h2,h3,p{margin:0}
 .lignes{list-style:none;margin:56px 0 0;padding:0;border-top:1px solid var(--trait)}
 .lignes li{display:grid;grid-template-columns:minmax(120px,1.2fr) 8fr 2.8fr;column-gap:32px;align-items:center;padding:20px 0;border-bottom:1px solid var(--trait);transition:background .25s,padding .25s}
 .lignes li:hover{background:rgba(255,255,255,.45);padding-left:14px;padding-right:14px;border-radius:12px}
-.l-type{font-size:12px;font-weight:500}
+.l-type{font-stretch:125%;font-weight:700;font-size:clamp(22px,2vw,30px);color:var(--or);line-height:1}
 .l-titre{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.5vw,22px);color:var(--gris)}
 .l-titre b{font-family:var(--sans);font-style:normal;font-weight:600;font-size:clamp(16px,1.25vw,19px);color:var(--encre);margin-right:6px}
 .l-duree{justify-self:end;display:inline-flex;align-items:center;height:32px;padding:0 15px;border-radius:100px;background:var(--encre);color:#fff;font-size:12.5px;font-weight:500}
@@ -182,7 +181,7 @@ h1,h2,h3,p{margin:0}
 .insta a{display:block}
 .insta a:hover img{transform:translateY(-6px)}
 .insta small{display:block;font-size:12px;margin:14px 0 4px}
-.insta b{font-weight:500;font-size:16px;line-height:1.3}
+.insta b{display:block;margin-top:14px;font-weight:500;font-size:16px;line-height:1.3}
 
 /* ---------- contact conversationnel ---------- */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding-bottom:clamp(80px,10vw,150px)}
@@ -212,7 +211,7 @@ h1,h2,h3,p{margin:0}
 
 /* ---------- pied ---------- */
 .pied{background:var(--nuit);color:#EAE8E4;padding:56px 0 30px}
-.pied-haut{display:grid;grid-template-columns:minmax(120px,1.2fr) 4fr 6.8fr;column-gap:32px;padding-bottom:64px;border-bottom:1px solid #2F3A5A}
+.pied-haut{display:grid;grid-template-columns:5fr 7fr;column-gap:32px;padding-bottom:64px;border-bottom:1px solid #2F3A5A}
 .pied-nav{display:flex;flex-direction:column;gap:10px}
 .pied-nav a{font-size:clamp(24px,2.2vw,32px);font-weight:400;line-height:1.2;width:max-content}
 .pied-nav a:hover{color:var(--sable)}
@@ -236,7 +235,6 @@ h1,h2,h3,p{margin:0}
   .contact{grid-template-columns:1fr}
   .chat{justify-self:start}
   .pied-haut{grid-template-columns:1fr 1fr;row-gap:36px}
-  .pied-haut .label{grid-column:1/-1}
 }
 @media (max-width:820px){
   .menu{position:fixed;inset:74px 0 auto 0;background:var(--fond);color:var(--encre);flex-direction:column;align-items:flex-start;gap:0;padding:12px var(--pad) 24px;border-bottom:1px solid var(--trait);display:none}
@@ -245,8 +243,6 @@ h1,h2,h3,p{margin:0}
   .menu .pilule{margin-top:14px}
   .menu .pilule span,.menu .pilule i{background:var(--encre);color:#fff}
   .burger{display:flex}
-  .grille-label{grid-template-columns:1fr}
-  .grille-label>.label{padding:0 0 18px}
   .hero-carte{width:auto;right:var(--pad);grid-template-columns:96px 1fr;align-items:center}
   .hero-carte img{aspect-ratio:1}
   .hero-carte .rond{display:none}
