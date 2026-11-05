@@ -30,8 +30,8 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
 document.querySelectorAll('.annee').forEach(el => el.textContent = new Date().getFullYear());
 
 // ---------- apparitions au scroll ----------
-const aReveler = document.querySelectorAll('.titre-large, .titre-geant, .carte, .porte, .galerie figure, .logos li, .insta li, .citation, .cas-txt, .bio-txt, .parti, .gains li, .non li, .score, .liste-part li, .suivante-titre, .coordonnees, .chat');
-const images = document.querySelectorAll('.carte-img, .porte-img, .cas-img, .bio-img');
+const aReveler = document.querySelectorAll('.titre-large, .titre-geant, .manifeste, .manif-cote, .carte, .porte, .galerie figure, .insta li, .citation, .tuile, .projet, .repere, .parcours-txt, .parti, .gains li, .non li, .suivante-titre, .coordonnees, .chat');
+const images = document.querySelectorAll('.carte-img, .porte-img, .manif-img, .gain-img, .portrait-rond');
 aReveler.forEach(el => el.classList.add('revele'));
 images.forEach(el => el.classList.add('revele-img'));
 const io = new IntersectionObserver(entrees => {
@@ -44,57 +44,11 @@ const io = new IntersectionObserver(entrees => {
 }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
 [...aReveler, ...images].forEach(el => io.observe(el));
 
-// ---------- manifeste révélé mot à mot ----------
-document.querySelectorAll('.mot-a-mot').forEach(bloc => {
-  const marcher = noeud => {
-    [...noeud.childNodes].forEach(n => {
-      if (n.nodeType === 3 && n.textContent.trim()) {
-        const frag = document.createDocumentFragment();
-        n.textContent.split(/(\s+)/).forEach(m => {
-          if (!m.trim()) { frag.append(m); return; }
-          const s = document.createElement('span'); s.className = 'mot'; s.textContent = m; frag.append(s);
-        });
-        n.replaceWith(frag);
-      }
-    });
-  };
-  marcher(bloc);
-  const mots = [...bloc.querySelectorAll('.mot, .puce-img')];
-  if (reduit) return;
-  const maj = () => {
-    const r = bloc.getBoundingClientRect();
-    const p = Math.min(1, Math.max(0, (innerHeight * .85 - r.top) / (r.height + innerHeight * .35)));
-    const n = p * mots.length;
-    mots.forEach((m, i) => m.style.opacity = i < n ? 1 : .16);
-  };
-  addEventListener('scroll', () => requestAnimationFrame(maj), { passive: true });
-  maj();
-});
-
-// ---------- bandeau LED : piste doublée pour boucler sans saut ----------
-document.querySelectorAll('.led-piste').forEach(p => {
+// ---------- bandeau des partenaires : piste doublée pour boucler sans saut ----------
+document.querySelectorAll('.defilant-piste').forEach(p => {
   p.innerHTML += p.innerHTML;
   if (reduit) p.style.animation = 'none';
 });
-
-// ---------- tableau d'affichage : les chiffres défilent ----------
-const chiffres = document.querySelectorAll('.score-chiffre');
-const ioScore = new IntersectionObserver(entrees => {
-  entrees.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, cible = +el.dataset.cible, plus = 'plus' in el.dataset;
-    const fin = () => el.textContent = String(cible).padStart(2, '0') + (plus ? '+' : '');
-    if (reduit) { fin(); return; }
-    let t = 0; const tours = 18;
-    const roule = setInterval(() => {
-      t++;
-      el.textContent = t < tours ? String(Math.floor(Math.random() * 100)).padStart(2, '0') : '';
-      if (t >= tours) { clearInterval(roule); fin(); }
-    }, 55);
-    ioScore.unobserve(el);
-  });
-}, { threshold: .5 });
-chiffres.forEach(c => ioScore.observe(c));
 
 // ---------- cercle qui grandit au scroll (accueil) ----------
 const bulle = document.getElementById('bulle');
@@ -112,18 +66,13 @@ if (bulle) {
 
 // ---------- curseur rond + aperçu qui suit la souris ----------
 const curseur = document.querySelector('.curseur');
-const apercu = document.querySelector('.apercu');
 if (souris && !reduit) {
-  let mx = -100, my = -100, cx = -100, cy = -100, ax = -999, ay = 0;
+  let mx = -100, my = -100, cx = -100, cy = -100;
   addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; curseur.classList.add('actif'); }, { passive: true });
   document.addEventListener('mouseleave', () => curseur.classList.remove('actif'));
   const boucle = () => {
     cx += (mx - cx) * .22; cy += (my - cy) * .22;
     curseur.style.translate = `${cx}px ${cy}px`;
-    if (apercu) {
-      ax += (mx + 28 - ax) * .12; ay += (my - apercu.offsetHeight / 2 - ay) * .12;
-      apercu.style.translate = `${ax}px ${ay}px`;
-    }
     requestAnimationFrame(boucle);
   };
   boucle();
@@ -131,17 +80,6 @@ if (souris && !reduit) {
     el.addEventListener('mouseenter', () => { curseur.querySelector('span').textContent = el.dataset.curseur; curseur.classList.add('grand'); });
     el.addEventListener('mouseleave', () => curseur.classList.remove('grand'));
   });
-  if (apercu) {
-    const img = apercu.querySelector('img');
-    document.querySelectorAll('.liste-part li[data-apercu]').forEach(li => {
-      li.addEventListener('mouseenter', () => {
-        img.src = li.dataset.apercu;
-        apercu.classList.toggle('logo', 'apercuLogo' in li.dataset);
-        apercu.classList.add('visible');
-      });
-      li.addEventListener('mouseleave', () => apercu.classList.remove('visible'));
-    });
-  }
 } else if (curseur) curseur.remove();
 
 // ---------- défilement horizontal à glisser ----------

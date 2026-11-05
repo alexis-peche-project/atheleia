@@ -7,22 +7,20 @@ HTML, CSS et JavaScript statiques, publiés avec GitHub Pages : https://alexis-p
 
 | Fichier | Contenu |
 |---|---|
-| `index.html` | Accueil : photo, manifeste, bandeau LED, trois portes d'entrée, tableau d'affichage, cercle « sport », appel |
+| `index.html` | Accueil : photo, manifeste, bandeau des partenaires, trois portes d'entrée, témoignage, cercle « sport », appel |
 | `approche.html` | Les 4 temps, ce que le sponsoring n'est pas, la méthode en 7 cartes empilées, les gains |
-| `partenaires.html` | Liste des partenaires avec aperçu au survol, cas Nice Volley-Ball, Johan Nigon, Davy Sénécail, logos |
-| `chloe.html` | Présentation, manifeste, partis pris, une semaine chez Athèleia (défilement à glisser), Instagram |
+| `partenaires.html` | Mosaïque des 8 partenaires, cas Nice Volley-Ball avec témoignage, projets de Johan Nigon et Davy Sénécail |
+| `chloe.html` | Présentation avec portrait, repères, parcours, partis pris, une semaine chez Athèleia, Instagram |
 | `contact.html` | Formulaire en conversation et coordonnées |
 | `mentions-legales.html` | Mentions légales (SIRET et adresse à compléter) |
 
 ## Concepts de design
 
 - **Rideau entre les pages** (transitions de page natives du navigateur, inspiré de Locomotive)
-- **Bandeau LED de bord de terrain** avec « Votre logo ici »
-- **Tableau d'affichage** façon scoreboard, chiffres qui défilent à l'arrivée
-- **Aperçu photo qui suit la souris** sur la liste des partenaires
+- **Mosaïque de partenaires** avec photos, logos et une tuile « Et si c'était votre club ? »
 - **Méthode en cartes qui s'empilent** au scroll (inspiré de Cuberto)
-- **Manifeste en rébus** révélé mot à mot
-- **Curseur rond** « Voir » / « Glisser » (inspiré de Basic/Dept)
+- **Curseur rond** « Voir » / « Glisser » et défilement à glisser (inspiré de Basic/Dept)
+- **Bandeau défilant** des partenaires, **cercle « sport »** qui grandit au scroll
 - **Lien « page suivante » géant** et grand mot « athèleia » en pied de page
 - Base visuelle inspirée de Monks : crème, boutons pilule + flèche ronde, images arrondies
 
