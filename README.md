@@ -1,47 +1,49 @@
-# Athèleia — site vitrine (maquette)
+# Athèleia — site vitrine
 
-Site une page pour Athèleia, conseil en sponsoring sportif de Chloé Briançon à Nice.
-HTML et CSS statiques, sans build ni dépendance : ouvrir `index.html` ou publier le dossier sur GitHub Pages.
+Site de 5 pages pour Athèleia, conseil en sponsoring sportif de Chloé Briançon à Nice.
+HTML, CSS et JavaScript statiques, publiés avec GitHub Pages : https://alexis-peche-project.github.io/atheleia/
 
-## Contenu
+## Pages
 
-| Fichier | Rôle |
+| Fichier | Contenu |
 |---|---|
-| `index.html` | La page : hero, rôle en 4 temps, terrain (Nice Volley-Ball), cercle « sport », méthode en 7 étapes, partenaires, témoignage, présentation, Instagram, contact conversationnel |
+| `index.html` | Accueil : photo, manifeste, bandeau LED, trois portes d'entrée, tableau d'affichage, cercle « sport », appel |
+| `approche.html` | Les 4 temps, ce que le sponsoring n'est pas, la méthode en 7 cartes empilées, les gains |
+| `partenaires.html` | Liste des partenaires avec aperçu au survol, cas Nice Volley-Ball, Johan Nigon, Davy Sénécail, logos |
+| `chloe.html` | Présentation, manifeste, partis pris, une semaine chez Athèleia (défilement à glisser), Instagram |
+| `contact.html` | Formulaire en conversation et coordonnées |
 | `mentions-legales.html` | Mentions légales (SIRET et adresse à compléter) |
-| `assets/style.css` | Feuille de style |
-| `assets/main.js` | En-tête, apparitions au scroll, cercle qui grandit, formulaire pas à pas |
-| `assets/fonts/` | Archivo (variable, largeur étendue) et Cormorant Garamond, auto-hébergées (licence SIL OFL) |
-| `assets/img/` | Photos et logos repris des comptes Instagram et LinkedIn d'Athèleia, recadrés et convertis en WebP |
-| `_sources/` | Images d'origine. **À ne pas publier** (exclu par `.gitignore`) |
 
-## Parti pris
+## Concepts de design
 
-Mise en page inspirée de monks.com : fond chaud clair, titres larges et gras, boutons « pilule » accolés à une flèche ronde, images arrondies, cartes numérotées en décalé, mot entouré à la main, grand cercle qui grandit au scroll, formulaire de contact en conversation, pied de page sombre.
+- **Rideau entre les pages** (transitions de page natives du navigateur, inspiré de Locomotive)
+- **Bandeau LED de bord de terrain** avec « Votre logo ici »
+- **Tableau d'affichage** façon scoreboard, chiffres qui défilent à l'arrivée
+- **Aperçu photo qui suit la souris** sur la liste des partenaires
+- **Méthode en cartes qui s'empilent** au scroll (inspiré de Cuberto)
+- **Manifeste en rébus** révélé mot à mot
+- **Curseur rond** « Voir » / « Glisser » (inspiré de Basic/Dept)
+- **Lien « page suivante » géant** et grand mot « athèleia » en pied de page
+- Base visuelle inspirée de Monks : crème, boutons pilule + flèche ronde, images arrondies
 
-Couleurs et contenus viennent d'Athèleia : bleu du sceau, bleu de la bannière LinkedIn, sable et doré des titres, bordeaux des bandeaux. Les textes sont tirés du profil et des publications de Chloé, retouchés pour le web.
+Les animations sont coupées si le visiteur a activé « réduire les animations » sur son appareil.
 
-## Avant la mise en ligne
+## Modifier le site
 
-1. **Formulaire** : créer un compte gratuit sur formspree.io (50 envois/mois), puis remplacer `VOTRE_IDENTIFIANT` dans `index.html`. Tant que ce n'est pas fait, le formulaire affiche un message de maquette.
+L'en-tête et le pied de page sont communs à toutes les pages. Pour éviter de les recopier six fois :
+
+1. modifier le contenu d'une page dans `_build/pages/` (ou le gabarit commun dans `_build/layout.py`) ;
+2. lancer `python3 _build/layout.py` depuis la racine du dépôt, qui régénère les fichiers `.html`.
+
+Le style est dans `assets/style.css` et les interactions dans `assets/main.js`.
+
+## Avant la mise en ligne définitive
+
+1. **Formulaire** : créer un compte gratuit sur formspree.io, puis remplacer `VOTRE_IDENTIFIANT` dans `_build/pages/contact.html` et régénérer.
 2. **Mentions légales** : ajouter le SIRET et l'adresse.
-3. **Accords** : faire valider par les clubs et athlètes l'usage de leur logo, et par Thierry Privat la citation.
-
-## Publication sur GitHub Pages
-
-```bash
-git init && git add . && git commit -m "Site vitrine Athèleia"
-git branch -M main && git remote add origin <url-du-depot> && git push -u origin main
-```
-
-Puis *Settings → Pages → Deploy from a branch → main / root*.
+3. **Accords** : faire valider l'usage des logos par les clubs et athlètes, et la citation par Thierry Privat.
 
 ## Nom de domaine
 
-`atheleia.fr` est libre au 3 novembre 2026 (vérifié auprès de l'AFNIC). Le `.com` est déjà pris par un cabinet d'architecture.
-Une fois acheté (OVH, Gandi, Infomaniak… environ 7 à 15 € par an), ajouter un fichier `CNAME` contenant `atheleia.fr`, puis chez le registrar :
-
-- 4 enregistrements `A` vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- un `CNAME` `www` vers `<compte-github>.github.io`
-
-Cocher ensuite *Enforce HTTPS* dans les réglages Pages.
+`atheleia.fr` était libre au 3 novembre 2026 (AFNIC). Une fois acheté, ajouter un fichier `CNAME` contenant `atheleia.fr`, puis chez le registrar :
+4 enregistrements `A` vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, et un `CNAME` `www` vers `alexis-peche-project.github.io`.
