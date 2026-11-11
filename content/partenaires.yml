@@ -1,0 +1,102 @@
+seo:
+  titre: Partenaires — Athèleia
+  description: 'Les clubs, associations et athlètes accompagnés par Athèleia : Nice Volley-Ball, hockey, roller hockey, moto endurance, course à pied.'
+entete:
+  etiquette: 02 — Les partenaires
+  titre: 'Des clubs, des associations
+
+    *et des athlètes* qui
+
+    travaillent avec Athèleia.'
+  intro: Six sports, des clubs professionnels comme des associations, et des athlètes qui portent des projets forts. Pour chaque entreprise, je cherche celui qui lui correspond.
+liste:
+- nom: Nice Volley-Ball
+  sport: Volley · Club professionnel
+  style: photo
+  image: assets/img/volley-emotions.webp
+  mot: ''
+  lien: '#nice-volley'
+  grande: true
+- nom: Johan Nigon
+  sport: Moto endurance · Pilote
+  style: photo
+  image: assets/img/nigon-casque.webp
+  mot: ''
+  lien: '#johan-nigon'
+  grande: false
+- nom: Davy Sénécail
+  sport: Course à pied · Défi solidaire
+  style: photo
+  image: assets/img/davy-course.webp
+  mot: ''
+  lien: '#davy-senecail'
+  grande: false
+- nom: Nice Hockey Côte d'Azur
+  sport: Hockey sur glace · Association
+  style: logo
+  image: assets/img/logo-nhca.webp
+  mot: ''
+  lien: ''
+  grande: false
+- nom: Les Aigles de Nice
+  sport: Hockey sur glace · Club professionnel
+  style: bleu-nuit
+  image: ''
+  mot: Aigles
+  lien: ''
+  grande: false
+- nom: Roller Hockey de Monaco
+  sport: Roller hockey · Association
+  style: logo
+  image: assets/img/logo-roller-monaco.webp
+  mot: ''
+  lien: ''
+  grande: false
+- nom: AS Cannes Mandelieu
+  sport: Handball · Club
+  style: sable
+  image: ''
+  mot: Hand
+  lien: ''
+  grande: false
+- nom: Roller Hockey d'Aubagne
+  sport: Roller hockey · Association
+  style: logo
+  image: assets/img/logo-roller-aubagne.webp
+  mot: ''
+  lien: ''
+  grande: false
+tuile_contact:
+  etiquette: Votre entreprise
+  titre: Et si c'était votre club ?
+  mot: Vous ?
+cas:
+  titre: 'Nice Volley-Ball : un soir de match avec ses sponsors.'
+  intro: Premier match de la saison, première mise en jeu. Dans la salle, des entreprises qui voient enfin ce qu'elles ont construit avec le club.
+  photos:
+  - image: assets/img/volley-ambiance.webp
+    legende: L'ambiance
+  - image: assets/img/volley-match.webp
+    legende: Le match
+  - image: assets/img/volley-sponsors.webp
+    legende: Les sponsors
+  citation: 'M''associer au Nice Volley-Ball via Chloé était une évidence : le sport collectif porte des valeurs d''engagement, de solidarité et de dépassement de soi qui font écho à mon métier.'
+  auteur: Thierry Privat
+  role: Agent général AXA Prévoyance & Patrimoine, La Gaude
+projets:
+  titre: Des athlètes, des projets.
+  liste:
+  - ancre: johan-nigon
+    image: assets/img/nigon-casque.webp
+    etiquette: Moto endurance
+    titre: 'Johan Nigon : préparer 2027 dès la fin du Bol d''Or.'
+    texte: Le Bol d'Or, plus ancienne course de 24 heures au monde, clôt la saison d'endurance. Pour un pilote, c'est le moment d'analyser ce qui a fonctionné et de prospecter les partenaires de la saison suivante.
+    bouton: Voir le carrousel
+    lien: https://www.instagram.com/atheleia.sponsoring/p/DdjigyCCFUx/
+  - ancre: davy-senecail
+    image: assets/img/davy-course.webp
+    etiquette: Course à pied · Défi solidaire
+    titre: 'Davy Sénécail : relier Nice à Lille en courant.'
+    texte: Un défi de 15 jours pour parler des maladies mentales, avec l'association Bipolarité France. Une tombola accompagne l'aventure, et les entreprises peuvent rejoindre le projet comme partenaires.
+    bouton: Devenir partenaire
+    lien: contact.html

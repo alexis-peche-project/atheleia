@@ -1,0 +1,66 @@
+seo:
+  titre: L'approche — Athèleia
+  description: 'Comment Athèleia construit un partenariat sportif : analyser, identifier, négocier, activer, en sept étapes.'
+entete:
+  etiquette: 01 — L'approche
+  titre: 'Un partenariat se construit
+
+    *en quelques mois,* pas en
+
+    quelques jours.'
+  intro: Plus on anticipe, plus le partenariat a du sens et de l'impact. J'accompagne les entreprises de la première rencontre jusqu'au bilan de saison.
+role:
+  titre: Mon rôle, en quatre temps.
+  cartes:
+  - titre: Analyser
+    texte: 'Vos enjeux : visibilité, image, marque employeur, réseau. On part de vous, pas d''un catalogue de clubs.'
+    image: assets/img/volley-emotions.webp
+  - titre: Identifier
+    texte: Le club, l'athlète ou l'événement qui vous ressemble et qui parle vraiment à votre public.
+    image: assets/img/volley-match.webp
+  - titre: Négocier
+    texte: Les contreparties, le calendrier, le contrat. Un partenariat clair et formalisé pour les deux parties.
+    image: assets/img/volley-sponsors.webp
+  - titre: Activer
+    texte: Soirées partenaires, contenus, rencontres avec les joueurs. Puis un suivi pour en faire un investissement.
+    image: assets/img/volley-ambiance.webp
+non:
+  titre: Ce que le sponsoring n'est pas.
+  phrases:
+  - Non, on ne prend pas un partenariat par connaissance.
+  - Non, on ne signe pas juste un logo sur un maillot.
+  - Non, le partenariat sportif n'a pas de limites, contrairement à ce que l'on pense.
+  - Non, ce n'est pas réservé aux grandes entreprises.
+methode:
+  titre: La méthode, étape par étape.
+  etapes:
+  - titre: La rencontre
+    texte: Le premier rendez-vous. Je découvre votre entreprise, vos clients, vos envies, et ce que vous attendez du sport.
+  - titre: L'analyse
+    texte: 'J''étudie les informations récoltées : votre cible, votre territoire, votre budget, le bon moment pour agir.'
+  - titre: Des propositions adaptées
+    texte: 'Plusieurs pistes construites pour vous : un club, un athlète, un événement, ou plusieurs projets pour répartir le budget.'
+  - titre: L'échange et la négociation
+    texte: Je fais le lien avec le club ou l'athlète et je négocie les contreparties qui comptent pour vous.
+  - titre: La concrétisation
+    texte: La proposition finale est formalisée, claire pour les deux parties, sans surprise.
+  - titre: La signature et l'activation
+    texte: 'On signe, puis on fait vivre le partenariat : présence aux matchs, contenus, soirées partenaires.'
+  - titre: La fidélisation
+    texte: On fait le point, on ajuste, et on prépare la saison suivante ensemble.
+gains:
+  titre: Ce que vous y gagnez.
+  image: assets/img/volley-equipe.webp
+  image_alt: L'équipe du Nice Volley-Ball après une victoire
+  bouton: En parler ensemble
+  points:
+  - titre: La connaissance du terrain
+    texte: Je sais ce que chaque club peut réellement vous apporter.
+  - titre: Zéro stress
+    texte: Je m'occupe des échanges, du contrat et du suivi.
+  - titre: Un accompagnement adapté
+    texte: À vos besoins, à votre taille et à votre budget.
+  - titre: Un budget divisible
+    texte: Possibilité de le répartir sur plusieurs projets ou plusieurs sports.
+  - titre: Un réseau
+    texte: Celui de tous les sports que j'accompagne, et des entreprises qui les soutiennent.

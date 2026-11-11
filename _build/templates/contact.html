@@ -1,29 +1,32 @@
+{% extends "base.html" %}
+{% block contenu %}
+{% set e = c.entete %}
 <header class="tete cadre">
-  <p class="tete-num">04 — Contact</p>
+  <p class="tete-num">{{ e.etiquette }}</p>
   <h1 class="lignes-titre titre-page">
-    <span class="ligne"><span>Construisons votre</span></span>
-    <span class="ligne"><span><em>prochain</em> partenariat.</span></span>
+    {% for l in e.titre | lignes %}<span class="ligne"><span>{{ l }}</span></span>
+    {% endfor %}
   </h1>
 </header>
 
 <section class="cadre contact">
   <div class="contact-infos">
-    <p class="intro">Vous avez déjà un club en tête, ou simplement l'envie de vous lancer sans savoir par où commencer ? Racontez-moi votre projet.</p>
+    <p class="intro">{{ c.intro | t }}</p>
     <ul class="coordonnees">
-      <li><span>Courriel</span><a href="mailto:atheleia.sponsoring@gmail.com">atheleia.sponsoring@gmail.com</a></li>
-      <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/chlo%C3%A9-brian%C3%A7on-9589a8151/">Chloé Briançon</a></li>
-      <li><span>Instagram</span><a href="https://www.instagram.com/atheleia.sponsoring/">@atheleia.sponsoring</a></li>
-      <li><span>Secteur</span>Nice, Côte d'Azur et Monaco</li>
+      <li><span>Courriel</span><a href="mailto:{{ site.courriel }}">{{ site.courriel }}</a></li>
+      <li><span>LinkedIn</span><a href="{{ site.linkedin }}">{{ site.linkedin_nom }}</a></li>
+      <li><span>Instagram</span><a href="{{ site.instagram }}">{{ site.instagram_nom }}</a></li>
+      <li><span>Secteur</span>{{ site.secteur }}</li>
     </ul>
   </div>
 
   <div class="chat">
     <div class="chat-ligne">
       <span class="chat-avatar"><img src="assets/img/sceau.webp" alt="" width="64" height="64"></span>
-      <p class="bulle-msg" id="msg">Bonjour 👋 Quelques questions rapides, et je reviens vers vous avec une première piste.</p>
+      <p class="bulle-msg" id="msg">{{ c.message_accueil }}</p>
     </div>
 
-    <form id="formulaire" action="https://formspree.io/f/VOTRE_IDENTIFIANT" method="POST" novalidate>
+    <form id="formulaire" action="https://formspree.io/f/{{ site.formspree or 'VOTRE_IDENTIFIANT' }}" method="POST" novalidate>
       <fieldset class="etape actif" data-q="Pour commencer, comment vous appelez-vous ?">
         <label class="sr" for="f-nom">Prénom et nom</label>
         <input id="f-nom" name="nom" placeholder="Prénom et nom *" autocomplete="name" required>
@@ -39,10 +42,9 @@
       <fieldset class="etape" data-q="Quel type de projet avez-vous en tête ?">
         <legend class="sr">Type de projet</legend>
         <div class="chips">
-          <label><input type="radio" name="projet" value="Sponsoring sportif" checked><span>Sponsoring sportif</span></label>
-          <label><input type="radio" name="projet" value="Mécénat"><span>Mécénat</span></label>
-          <label><input type="radio" name="projet" value="Partenariat"><span>Partenariat</span></label>
-          <label><input type="radio" name="projet" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
+          {% for tp in c.types_projet %}
+          <label><input type="radio" name="projet" value="{{ tp }}"{% if loop.first %} checked{% endif %}><span>{{ tp }}</span></label>
+          {% endfor %}
         </div>
       </fieldset>
       <fieldset class="etape" data-q="Dernière question : vos objectifs, en quelques mots ?">
@@ -52,8 +54,9 @@
 
       <div class="chat-pied">
         <div class="points" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
-        <button class="rond rond-blanc grand" type="submit" id="suivant" aria-label="Question suivante"><svg aria-hidden="true"><use href="#fleche"/></svg></button>
+        <button class="rond rond-blanc grand" type="submit" id="suivant" aria-label="Question suivante">{{ FLECHE }}</button>
       </div>
     </form>
   </div>
 </section>
+{% endblock %}

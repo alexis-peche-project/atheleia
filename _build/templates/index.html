@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block contenu %}
+{% set h = c.hero %}
+<!-- HERO -->
+<section class="hero">
+  {{ img(h.image, h.image_alt, "hero-fond", False, 'fetchpriority="high"') }}
+  <div class="hero-voile"></div>
+  <div class="hero-centre">
+    <h1 class="lignes-titre">
+      <span class="ligne"><span class="serif">{{ h.ligne_1 | t }}</span></span>
+      <span class="ligne"><span class="large">{{ h.ligne_2 | t }}</span></span>
+    </h1>
+    <a class="pilule pilule-clair apparait-tard" href="contact.html"><span>{{ h.bouton }}</span><i>{{ FLECHE }}</i></a>
+  </div>
+  <a class="hero-carte apparait-tard" href="partenaires.html#nice-volley" data-curseur="Voir">
+    {{ img(h.carte_image, "", "", False) }}
+    <span class="hero-carte-txt">
+      <b>{{ h.carte_titre }}</b>
+      <span>{{ h.carte_texte | t }}</span>
+    </span>
+    <i class="rond">{{ FLECHE }}</i>
+  </a>
+  <p class="hero-bas">{{ site.secteur }}</p>
+</section>
+
+{% set m = c.manifeste %}
+<!-- MANIFESTE -->
+<section class="section cadre manif-grille">
+  <p class="manifeste">{{ rebus(m.texte, m.photos) }}</p>
+  <div class="manif-cote">
+    <div class="manif-img">{{ img(m.image, m.image_alt) }}</div>
+    <p>{{ m.paragraphe | t }}</p>
+    <a class="pilule pilule-sombre petit" href="approche.html"><span>{{ m.bouton }}</span><i>{{ FLECHE }}</i></a>
+  </div>
+</section>
+
+<!-- BANDEAU DES PARTENAIRES (noms repris de la page Partenaires) -->
+{% set noms = partenaires_noms %}
+<div class="defilant" aria-label="Partenaires : {{ noms | join(', ') }}">
+  <div class="defilant-piste" aria-hidden="true">
+    {% for n in noms %}<span>{{ n }}</span>{% endfor %}
+
+  </div>
+</div>
+
+{% set p = c.portes %}
+<!-- TROIS PORTES D'ENTRÉE -->
+<section class="section cadre">
+  <h2 class="titre-large">{{ p.titre | t }}</h2>
+  <div class="portes">
+    {% for cle, lien, classe_img in [("approche", "approche.html", ""), ("partenaires", "partenaires.html", ""), ("chloe", "chloe.html", " porte-portrait")] %}
+    {% set porte = p[cle] %}
+    <a class="porte" href="{{ lien }}" data-curseur="Voir">
+      <span class="num" aria-hidden="true">0{{ loop.index }}</span>
+      <span class="porte-img{{ classe_img }}">{{ img(porte.image) }}</span>
+      <span class="porte-titre">{{ porte.titre }} <i class="rond rond-sombre">{{ FLECHE }}</i></span>
+      <span class="porte-txt">{{ porte.texte | t }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% set tm = c.temoignage %}
+<!-- TÉMOIGNAGE -->
+<section class="section cadre">
+  <figure class="citation citation-nuit">
+    <blockquote>
+      <p>« {{ tm.texte | t }} »</p>
+    </blockquote>
+    <figcaption><span class="avatar-ini" aria-hidden="true">{{ tm.auteur | initiales }}</span><span><b>{{ tm.auteur }}</b>{{ tm.role }}</span></figcaption>
+  </figure>
+</section>
+
+<!-- CERCLE QUI GRANDIT AU SCROLL -->
+<section class="bulle" id="bulle">
+  <div class="bulle-colle">
+    <div class="bulle-rond" aria-hidden="true"></div>
+    <p class="bulle-mot" aria-label="Sport"><span>sp</span><span class="bulle-o">{{ img(c.cercle.image) }}</span><span>rt</span></p>
+    <p class="bulle-phrase">{{ c.cercle.phrase | t }}</p>
+  </div>
+</section>
+
+{% set a = c.appel %}
+<!-- APPEL -->
+<section class="section cadre">
+  <div class="appel">
+    <h2 class="titre-geant">{{ a.debut }} <span class="entoure">{{ a.mot_entoure }}<svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M168 14C110 4 34 16 12 52c-18 30 30 56 120 58 92 2 160-22 158-56C288 22 214 4 140 10 92 14 58 24 44 34"/></svg></span>&nbsp;{{ a.fin }}</h2>
+    <a class="pilule pilule-sombre" href="contact.html"><span>{{ a.bouton }}</span><i>{{ FLECHE }}</i></a>
+  </div>
+</section>
+{% endblock %}

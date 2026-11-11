@@ -1,0 +1,71 @@
+seo:
+  titre: Qui suis-je — Chloé Briançon, Athèleia
+  description: Chloé Briançon, fondatrice d'Athèleia, consultante en partenariats sportifs à Nice.
+presentation:
+  etiquette: 03 — Qui suis-je
+  titre: 'Je suis Chloé,
+
+    *et j''ai créé*
+
+    Athèleia.'
+  chapo: J'accompagne les entreprises dans la mise en place de partenariats sportifs structurés, alignés avec leurs objectifs business.
+  portrait: assets/img/chloe-portrait.webp
+  badge: 'Fondatrice d''Athèleia
+
+    Nice'
+reperes:
+- chiffre: AMOS
+  texte: Sport Business School
+- chiffre: 2 ans +
+  texte: sur le terrain, aux côtés des clubs
+- chiffre: 6 sports
+  texte: volley, hockey, roller, handball, moto, course
+parcours:
+  titre: Mon parcours.
+  paragraphes:
+  - Après AMOS Sport Business School, j'ai monté Athèleia pour aider les clubs, les athlètes et les entreprises qui veulent utiliser le sport comme moyen de communication.
+  - Depuis plus de deux ans, j'analyse, j'observe, j'améliore, je me trompe et je rebondis, en accompagnant différents sports et différents secteurs d'activité. Ça me donne une vision globale et minutieuse du terrain.
+  - 'Des entreprises me suivent depuis mes débuts et sont toujours là aujourd''hui. Ma priorité reste la même : vous écouter. Il n''y a que comme ça que les résultats suivent.'
+partis:
+  titre: Mes partis pris.
+  liste:
+  - titre: Pas de football.
+    texte: Choisir mes terrains me permet de rester concentrée là où je peux vraiment faire la différence, et de ne pas travailler avec des clients qui vont à l'encontre de mes valeurs.
+  - titre: La transparence.
+    texte: Chez Athèleia, je vous accompagne en toute transparence, de la première proposition au bilan de saison.
+  - titre: Le local d'abord.
+    texte: 'Nice, la Côte d''Azur, Monaco : des clubs et des athlètes proches de vos clients et de vos équipes.'
+semaine:
+  titre: Une semaine chez Athèleia.
+  intro: Glissez pour suivre les coulisses.
+  cartes:
+  - image: assets/img/volley-match.webp
+    titre: Sur le terrain
+    texte: 'Beaucoup de temps dans les structures sportives : matchs, mises au point. Mais ce n''est pas tout.'
+  - image: assets/img/volley-ambiance.webp
+    titre: Business
+    texte: Chaque mois, un ou deux business clubs pour continuer à développer mon réseau B2B.
+  - image: assets/img/volley-sponsors.webp
+    titre: Événements
+    texte: J'aide aussi les clubs à organiser des événements pour développer leur B2B ou leurs licenciés.
+  - image: assets/img/volley-emotions.webp
+    titre: Les yeux partout
+    texte: 'Chaque jour, je regarde les campagnes publicitaires dans la ville, les bus, les trams : elles me donnent des idées.'
+  - image: assets/img/volley-equipe.webp
+    titre: Rendez-vous
+    texte: Des rendez-vous à Sundesk, mon espace de travail, ou directement dans vos locaux.
+instagram:
+  titre: Sur Instagram
+  publications:
+  - image: assets/img/ig05-handball-premier-match.webp
+    titre: Premier match et ça commence fort
+    lien: https://www.instagram.com/atheleia.sponsoring/p/De9xRL2CPwL/
+  - image: assets/img/ig07-coulisses.webp
+    titre: Une semaine chez Athèleia
+    lien: https://www.instagram.com/atheleia.sponsoring/p/DeZnTkZCHcO/
+  - image: assets/img/ig06-sports-americains.webp
+    titre: Les sports américains débarquent en France
+    lien: https://www.instagram.com/atheleia.sponsoring/p/DerozeuiHbO/
+  - image: assets/img/ig08-sport-sante-mentale.webp
+    titre: Sport et santé mentale
+    lien: https://www.instagram.com/atheleia.sponsoring/p/DeTubZpIdB2/

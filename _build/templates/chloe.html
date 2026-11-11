@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block contenu %}
+{% set pr = c.presentation %}
+<section class="cadre presentation">
+  <div class="presentation-txt">
+    <p class="tete-num">{{ pr.etiquette }}</p>
+    <h1 class="lignes-titre titre-page">
+      {% for l in pr.titre | lignes %}<span class="ligne"><span>{{ l }}</span></span>
+      {% endfor %}
+    </h1>
+    <p class="bio-chapo">{{ pr.chapo | t }}</p>
+  </div>
+  <div class="presentation-portrait">
+    <div class="portrait-rond">{{ img(pr.portrait, "Portrait de Chloé Briançon", "", False) }}</div>
+    {% if pr.badge %}<span class="portrait-badge">{{ pr.badge | t }}</span>{% endif %}
+  </div>
+</section>
+
+<!-- REPÈRES -->
+<section class="cadre reperes">
+  {% for r in c.reperes %}
+  <div class="repere"><b>{{ r.chiffre }}</b><span>{{ r.texte }}</span></div>
+  {% endfor %}
+</section>
+
+<!-- PARCOURS -->
+<section class="section cadre parcours">
+  <h2 class="titre-large">{{ c.parcours.titre | t }}</h2>
+  <div class="parcours-txt">
+    {% for para in c.parcours.paragraphes %}
+    <p>{{ para | t }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- PARTIS PRIS -->
+<section class="section cadre">
+  <h2 class="titre-large">{{ c.partis.titre | t }}</h2>
+  <div class="partis">
+    {% for pp in c.partis.liste %}
+    <article class="parti {{ ['parti-nuit', 'parti-sable', 'parti-blanc'][loop.index0 % 3] }}">
+      <span class="parti-num">{{ "%02d" | format(loop.index) }}</span>
+      <h3>{{ pp.titre }}</h3>
+      <p>{{ pp.texte | t }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% set s = c.semaine %}
+<!-- UNE SEMAINE CHEZ ATHÈLEIA -->
+<section class="section horiz-bloc">
+  <div class="cadre horiz-tete">
+    <h2 class="titre-large">{{ s.titre | t }}</h2>
+    <p class="intro">{{ s.intro | t }}</p>
+  </div>
+  <div class="horiz" tabindex="0" aria-label="{{ s.titre | replace('.', '') }}, défilement horizontal" data-curseur="Glisser">
+    {% for carte in s.cartes %}
+    <article class="horiz-carte">{{ img(carte.image) }}<h3>{{ carte.titre }}</h3><p>{{ carte.texte | t }}</p></article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section cadre">
+  <div class="insta-entete">
+    <h2 class="titre-large">{{ c.instagram.titre | t }}</h2>
+    <a class="pilule pilule-sombre petit" href="{{ site.instagram }}"><span>{{ site.instagram_nom }}</span><i>{{ FLECHE }}</i></a>
+  </div>
+  <ul class="insta">
+    {% for pub in c.instagram.publications %}
+    <li><a href="{{ pub.lien or site.instagram }}" data-curseur="Voir">{{ img(pub.image) }}<b>{{ pub.titre }}</b></a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

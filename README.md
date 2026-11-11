@@ -28,17 +28,28 @@ Les animations sont coupées si le visiteur a activé « réduire les animations
 
 ## Modifier le site
 
-L'en-tête et le pied de page sont communs à toutes les pages. Pour éviter de les recopier six fois :
+### Les textes et les photos (pour Chloé)
 
-1. modifier le contenu d'une page dans `_build/pages/` (ou le gabarit commun dans `_build/layout.py`) ;
-2. lancer `python3 _build/layout.py` depuis la racine du dépôt, qui régénère les fichiers `.html`.
+Tout se fait sur **https://app.pagescms.org** : choisir le dépôt `atheleia`, puis une page dans le menu (Accueil, L'approche, Partenaires…), modifier les champs et cliquer sur **Save**. Le site se met à jour tout seul en une à deux minutes.
 
-Le style est dans `assets/style.css` et les interactions dans `assets/main.js`.
+- `*mot*` met un mot en italique bordeaux dans les titres ;
+- dans les grands titres, chaque retour à la ligne crée une nouvelle ligne ;
+- dans la grande phrase de l'accueil, `[photo]` place une petite photo dans le texte.
+
+Les textes sont stockés dans `content/*.yml`, et la configuration de l'interface dans `.pages.yml`.
+
+### La mise en page (pour Alexis)
+
+- gabarits : `_build/templates/*.html` (Jinja) ;
+- style : `assets/style.css`, interactions : `assets/main.js` ;
+- `python3 _build/build.py` régénère les pages `.html` à la racine pour un aperçu local (dépendances : `pip install jinja2 pyyaml pillow`).
+
+À chaque modification poussée sur `main`, l'automatisation `.github/workflows/deploy.yml` reconstruit le site dans `_site/` (en réduisant les photos de plus de 2400 px) et le publie sur GitHub Pages. Dans les réglages du dépôt, *Settings → Pages → Source* doit être sur **GitHub Actions**.
 
 ## Avant la mise en ligne définitive
 
-1. **Formulaire** : créer un compte gratuit sur formspree.io, puis remplacer `VOTRE_IDENTIFIANT` dans `_build/pages/contact.html` et régénérer.
-2. **Mentions légales** : ajouter le SIRET et l'adresse.
+1. **Formulaire** : créer un compte gratuit sur formspree.io, puis renseigner l'identifiant dans Pages CMS (Coordonnées → Identifiant Formspree).
+2. **Mentions légales** : ajouter le SIRET et l'adresse (Pages CMS → Mentions légales).
 3. **Accords** : faire valider l'usage des logos par les clubs et athlètes, et la citation par Thierry Privat.
 
 ## Nom de domaine

@@ -1,0 +1,374 @@
+# Interface d'édition du site Athèleia (Pages CMS — https://app.pagescms.org)
+# Chaque entrée ci-dessous correspond à une page du site. Les textes sont dans content/*.yml.
+# Astuces pour les textes : *mot* = mot en italique bordeaux ; un retour à la ligne = une nouvelle ligne.
+
+media:
+  input: assets/img
+  output: assets/img
+  categories: [image]
+
+content:
+  # ------------------------------------------------------------------ ACCUEIL
+  - name: accueil
+    label: Accueil
+    type: file
+    path: content/accueil.yml
+    format: yaml
+    fields:
+      - name: seo
+        label: Référencement Google
+        type: object
+        fields:
+          - { name: titre, label: "Titre de l'onglet", type: string }
+          - { name: description, label: "Description dans Google", type: text }
+      - name: hero
+        label: Grande photo d'ouverture
+        type: object
+        fields:
+          - { name: ligne_1, label: "Titre, première ligne (italique dorée)", type: string }
+          - { name: ligne_2, label: "Titre, deuxième ligne", type: string }
+          - { name: bouton, label: "Texte du bouton", type: string }
+          - { name: image, label: "Photo de fond", type: image, description: "Idéalement une photo horizontale d'au moins 2500 pixels de large." }
+          - { name: image_alt, label: "Description de la photo (pour l'accessibilité)", type: string }
+          - { name: carte_titre, label: "Petite carte, titre", type: string }
+          - { name: carte_texte, label: "Petite carte, texte", type: text }
+          - { name: carte_image, label: "Petite carte, photo", type: image }
+      - name: manifeste
+        label: Manifeste
+        type: object
+        fields:
+          - { name: texte, label: "Grande phrase", type: text, description: "Écrivez [photo] à l'endroit où une petite photo doit apparaître dans la phrase." }
+          - { name: photos, label: "Petites photos de la phrase (dans l'ordre)", type: image, list: true }
+          - { name: image, label: "Photo à droite", type: image }
+          - { name: image_alt, label: "Description de la photo", type: string }
+          - { name: paragraphe, label: "Paragraphe à droite", type: text }
+          - { name: bouton, label: "Texte du bouton", type: string }
+      - name: portes
+        label: Trois cartes vers les autres pages
+        type: object
+        fields:
+          - { name: titre, label: "Titre de la section", type: string }
+          - name: approche
+            label: Carte « L'approche »
+            type: object
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+              - { name: image, label: "Photo", type: image }
+          - name: partenaires
+            label: Carte « Les partenaires »
+            type: object
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+              - { name: image, label: "Photo", type: image }
+          - name: chloe
+            label: Carte « Qui suis-je »
+            type: object
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+              - { name: image, label: "Photo", type: image }
+      - name: temoignage
+        label: Témoignage
+        type: object
+        fields:
+          - { name: texte, label: "Citation (sans guillemets)", type: text }
+          - { name: auteur, label: "Nom", type: string }
+          - { name: role, label: "Fonction", type: string }
+      - name: cercle
+        label: Cercle « sport »
+        type: object
+        fields:
+          - { name: phrase, label: "Phrase sous le cercle", type: text }
+          - { name: image, label: "Photo dans le « o »", type: image }
+      - name: appel
+        label: Appel final
+        type: object
+        fields:
+          - { name: debut, label: "Début de la phrase", type: string }
+          - { name: mot_entoure, label: "Mot entouré", type: string }
+          - { name: fin, label: "Fin de la phrase", type: string }
+          - { name: bouton, label: "Texte du bouton", type: string }
+
+  # ------------------------------------------------------------------ L'APPROCHE
+  - name: approche
+    label: L'approche
+    type: file
+    path: content/approche.yml
+    format: yaml
+    fields:
+      - name: seo
+        label: Référencement Google
+        type: object
+        fields:
+          - { name: titre, label: "Titre de l'onglet", type: string }
+          - { name: description, label: "Description dans Google", type: text }
+      - name: entete
+        label: Haut de page
+        type: object
+        fields:
+          - { name: etiquette, label: "Étiquette", type: string }
+          - { name: titre, label: "Grand titre", type: text, description: "Une ligne par retour à la ligne. *mots* en italique bordeaux." }
+          - { name: intro, label: "Introduction", type: text }
+      - name: role
+        label: Mon rôle en quatre temps
+        type: object
+        fields:
+          - { name: titre, label: "Titre de la section", type: string }
+          - name: cartes
+            label: Cartes
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+              - { name: image, label: "Photo", type: image }
+      - name: non
+        label: Ce que le sponsoring n'est pas
+        type: object
+        fields:
+          - { name: titre, label: "Titre de la section", type: string }
+          - { name: phrases, label: "Phrases", type: string, list: true, description: "Commencer par « Non, » pour le mettre en doré." }
+      - name: methode
+        label: La méthode
+        type: object
+        fields:
+          - { name: titre, label: "Titre de la section", type: string }
+          - name: etapes
+            label: Étapes
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+      - name: gains
+        label: Ce que vous y gagnez
+        type: object
+        fields:
+          - { name: titre, label: "Titre de la section", type: string }
+          - { name: image, label: "Photo", type: image }
+          - { name: image_alt, label: "Description de la photo", type: string }
+          - { name: bouton, label: "Texte du bouton", type: string }
+          - name: points
+            label: Points
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+
+  # ------------------------------------------------------------------ PARTENAIRES
+  - name: partenaires
+    label: Partenaires
+    type: file
+    path: content/partenaires.yml
+    format: yaml
+    fields:
+      - name: seo
+        label: Référencement Google
+        type: object
+        fields:
+          - { name: titre, label: "Titre de l'onglet", type: string }
+          - { name: description, label: "Description dans Google", type: text }
+      - name: entete
+        label: Haut de page
+        type: object
+        fields:
+          - { name: etiquette, label: "Étiquette", type: string }
+          - { name: titre, label: "Grand titre", type: text, description: "Une ligne par retour à la ligne. *mots* en italique bordeaux." }
+          - { name: intro, label: "Introduction", type: text }
+      - name: liste
+        label: Partenaires (mosaïque et bandeau de l'accueil)
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{nom}" } }
+        fields:
+          - { name: nom, label: "Nom", type: string, required: true }
+          - { name: sport, label: "Sport et type", type: string, description: "Ex. : Hockey sur glace · Association" }
+          - name: style
+            label: Style de la carte
+            type: select
+            options:
+              values:
+                - { name: photo, label: Photo }
+                - { name: logo, label: Logo sur fond blanc }
+                - { name: bleu-nuit, label: Fond bleu nuit (sans image) }
+                - { name: sable, label: Fond sable (sans image) }
+          - { name: image, label: "Photo ou logo", type: image }
+          - { name: mot, label: "Grand mot décoratif (cartes sans image)", type: string }
+          - { name: lien, label: "Lien au clic (facultatif)", type: string, description: "Ex. : #nice-volley pour descendre vers un projet de la page." }
+          - { name: grande, label: "Grande carte", type: boolean }
+      - name: tuile_contact
+        label: Carte « Et si c'était votre club ? »
+        type: object
+        fields:
+          - { name: etiquette, label: "Petite ligne", type: string }
+          - { name: titre, label: "Titre", type: string }
+          - { name: mot, label: "Grand mot décoratif", type: string }
+      - name: cas
+        label: Exemple Nice Volley-Ball
+        type: object
+        fields:
+          - { name: titre, label: "Titre", type: string }
+          - { name: intro, label: "Introduction", type: text }
+          - name: photos
+            label: Photos
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{legende}" } }
+            fields:
+              - { name: image, label: "Photo", type: image }
+              - { name: legende, label: "Légende", type: string }
+          - { name: citation, label: "Citation (sans guillemets)", type: text }
+          - { name: auteur, label: "Nom", type: string }
+          - { name: role, label: "Fonction", type: string }
+      - name: projets
+        label: Projets d'athlètes
+        type: object
+        fields:
+          - { name: titre, label: "Titre de la section", type: string }
+          - name: liste
+            label: Projets
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: ancre, label: "Identifiant (pour les liens)", type: string, description: "En minuscules, sans espace. Ex. : johan-nigon" }
+              - { name: image, label: "Photo", type: image }
+              - { name: etiquette, label: "Étiquette", type: string }
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+              - { name: bouton, label: "Texte du bouton", type: string }
+              - { name: lien, label: "Lien du bouton", type: string }
+
+  # ------------------------------------------------------------------ QUI SUIS-JE
+  - name: chloe
+    label: Qui suis-je
+    type: file
+    path: content/chloe.yml
+    format: yaml
+    fields:
+      - name: seo
+        label: Référencement Google
+        type: object
+        fields:
+          - { name: titre, label: "Titre de l'onglet", type: string }
+          - { name: description, label: "Description dans Google", type: text }
+      - name: presentation
+        label: Présentation
+        type: object
+        fields:
+          - { name: etiquette, label: "Étiquette", type: string }
+          - { name: titre, label: "Grand titre", type: text, description: "Une ligne par retour à la ligne. *mots* en italique bordeaux." }
+          - { name: chapo, label: "Phrase d'accroche", type: text }
+          - { name: portrait, label: "Portrait", type: image, description: "Photo carrée de préférence, visage centré." }
+          - { name: badge, label: "Étiquette sur le portrait", type: text }
+      - name: reperes
+        label: Repères
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{chiffre}" } }
+        fields:
+          - { name: chiffre, label: "Chiffre ou mot clé", type: string }
+          - { name: texte, label: "Texte", type: string }
+      - name: parcours
+        label: Mon parcours
+        type: object
+        fields:
+          - { name: titre, label: "Titre", type: string }
+          - { name: paragraphes, label: "Paragraphes", type: text, list: true }
+      - name: partis
+        label: Mes partis pris
+        type: object
+        fields:
+          - { name: titre, label: "Titre", type: string }
+          - name: liste
+            label: Partis pris
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+      - name: semaine
+        label: Une semaine chez Athèleia
+        type: object
+        fields:
+          - { name: titre, label: "Titre", type: string }
+          - { name: intro, label: "Petite phrase", type: string }
+          - name: cartes
+            label: Cartes
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: image, label: "Photo", type: image }
+              - { name: titre, label: "Titre", type: string }
+              - { name: texte, label: "Texte", type: text }
+      - name: instagram
+        label: Instagram
+        type: object
+        fields:
+          - { name: titre, label: "Titre", type: string }
+          - name: publications
+            label: Publications
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{titre}" } }
+            fields:
+              - { name: image, label: "Image", type: image }
+              - { name: titre, label: "Titre", type: string }
+              - { name: lien, label: "Lien vers la publication", type: string }
+
+  # ------------------------------------------------------------------ CONTACT
+  - name: contact
+    label: Contact
+    type: file
+    path: content/contact.yml
+    format: yaml
+    fields:
+      - name: seo
+        label: Référencement Google
+        type: object
+        fields:
+          - { name: titre, label: "Titre de l'onglet", type: string }
+          - { name: description, label: "Description dans Google", type: text }
+      - name: entete
+        label: Haut de page
+        type: object
+        fields:
+          - { name: etiquette, label: "Étiquette", type: string }
+          - { name: titre, label: "Grand titre", type: text, description: "Une ligne par retour à la ligne. *mots* en italique bordeaux." }
+      - { name: intro, label: "Introduction", type: text }
+      - { name: message_accueil, label: "Message d'accueil du formulaire", type: text }
+      - { name: types_projet, label: "Types de projet proposés", type: string, list: true }
+
+  # ------------------------------------------------------------------ COORDONNÉES
+  - name: site
+    label: Coordonnées (tout le site)
+    type: file
+    path: content/site.yml
+    format: yaml
+    fields:
+      - { name: courriel, label: "Adresse e-mail", type: string }
+      - { name: linkedin, label: "Lien LinkedIn", type: string }
+      - { name: linkedin_nom, label: "Nom affiché pour LinkedIn", type: string }
+      - { name: instagram, label: "Lien Instagram", type: string }
+      - { name: instagram_nom, label: "Nom affiché pour Instagram", type: string }
+      - { name: secteur, label: "Secteur géographique", type: string }
+      - { name: formspree, label: "Identifiant Formspree du formulaire", type: string, description: "Les caractères après formspree.io/f/ (ex. : xyzabcd). Laisser vide tant que le formulaire n'est pas relié." }
+
+  # ------------------------------------------------------------------ MENTIONS LÉGALES
+  - name: mentions
+    label: Mentions légales
+    type: file
+    path: content/mentions-legales.yml
+    format: yaml
+    fields:
+      - { name: editrice, label: "Éditrice", type: string }
+      - { name: siret, label: "SIRET", type: string }
+      - { name: adresse, label: "Adresse", type: text }
+      - { name: directrice, label: "Directrice de la publication", type: string }
+      - { name: hebergement, label: "Hébergeur", type: text }
+      - { name: donnees, label: "Données personnelles (paragraphes)", type: text, list: true }
+      - { name: credits, label: "Crédits", type: text }
+      - name: seo
+        label: Référencement Google
+        type: object
+        fields:
+          - { name: titre, label: "Titre de l'onglet", type: string }
+          - { name: description, label: "Description dans Google", type: text }

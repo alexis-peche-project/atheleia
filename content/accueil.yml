@@ -1,0 +1,47 @@
+seo:
+  titre: Athèleia — Sponsoring sportif pour les entreprises à Nice
+  description: 'Athèleia accompagne les entreprises de la Côte d''Azur dans leurs partenariats sportifs : analyse, choix du club ou de l''athlète, négociation, activation.'
+hero:
+  ligne_1: Le sponsoring sportif,
+  ligne_2: un vrai levier business
+  bouton: Parlons de votre projet
+  image: assets/img/volley-emotions.webp
+  image_alt: Joueurs du Nice Volley-Ball qui célèbrent un point
+  carte_titre: Nice Volley-Ball
+  carte_texte: Premier match de la saison, avec ses sponsors dans la salle.
+  carte_image: assets/img/volley-sponsors.webp
+manifeste:
+  texte: Le sponsoring sportif ne se limite pas à apposer un logo [photo] sur un maillot. Il doit s'intégrer à votre stratégie et produire un impact concret [photo] pour votre entreprise.
+  photos:
+  - assets/img/volley-sponsors.webp
+  - assets/img/volley-ambiance.webp
+  image: assets/img/volley-match.webp
+  image_alt: Phase de jeu au Nice Volley-Ball
+  paragraphe: J'accompagne les entreprises de Nice, de la Côte d'Azur et de Monaco dans des partenariats sportifs structurés, alignés avec leurs objectifs business.
+  bouton: Découvrir l'approche
+portes:
+  titre: Trois façons de découvrir Athèleia.
+  approche:
+    titre: L'approche
+    texte: 'Analyser, identifier, négocier, activer : la méthode en sept étapes.'
+    image: assets/img/volley-sponsors.webp
+  partenaires:
+    titre: Les partenaires
+    texte: 'Volley, hockey, roller, moto, course : les sports et les entreprises accompagnés.'
+    image: assets/img/volley-equipe.webp
+  chloe:
+    titre: Qui suis-je
+    texte: Chloé Briançon, fondatrice d'Athèleia, et ses partis pris.
+    image: assets/img/chloe-portrait.webp
+temoignage:
+  texte: Je recommande sincèrement Athèleia à toute entreprise qui souhaite s'engager dans le sponsoring sportif local de manière simple, humaine et bien accompagnée.
+  auteur: Thierry Privat
+  role: Agent général AXA Prévoyance & Patrimoine, partenaire du Nice Volley-Ball
+cercle:
+  phrase: Vous ne sponsorisez pas seulement un sport. Vous vous associez aux émotions qu'il génère.
+  image: assets/img/volley-equipe.webp
+appel:
+  debut: Et si on parlait de votre
+  mot_entoure: projet
+  fin: '?'
+  bouton: Prendre rendez-vous

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ seo.titre }}</title>
+<meta name="description" content="{{ seo.description }}">
+<meta property="og:title" content="{{ seo.titre }}">
+<meta property="og:description" content="{{ seo.description }}">
+<meta property="og:image" content="assets/img/volley-emotions.webp">
+<meta property="og:locale" content="fr_FR">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="{{ classe }}">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="fleche" viewBox="0 0 70 70"><path d="M35.1 27 43 34.9l-7.9 7.9M43 35.1H26" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+</svg>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="entete" id="entete">
+  <div class="cadre entete-in">
+    <a class="marque" href="index.html" aria-label="Athèleia, accueil">
+      <img src="assets/img/sceau.webp" alt="" width="40" height="40">
+      <span>athèleia</span>
+    </a>
+    <nav id="menu" class="menu" aria-label="Navigation principale">
+{% for f, nom in nav if f != "contact.html" %}
+      <a href="{{ f }}"{% if f == page %} aria-current="page"{% endif %}><span class="m-num">0{{ loop.index }}</span>{{ nom }}</a>
+{% endfor %}
+      <a class="pilule pilule-clair" href="contact.html"{% if page == "contact.html" %} aria-current="page"{% endif %}><span>Discutons-en</span><i>{{ FLECHE }}</i></a>
+    </nav>
+    <button class="burger" aria-expanded="false" aria-controls="menu"><span></span><span></span><b class="sr">Menu</b></button>
+  </div>
+</header>
+
+<main id="contenu">
+{% block contenu %}{% endblock %}
+</main>
+
+<a class="suivante cadre" href="{{ suivante[0] }}" data-curseur="Aller">
+  <span class="suivante-label">Page suivante</span>
+  <span class="suivante-titre">{{ suivante[1] }}<i class="rond rond-sombre grand">{{ FLECHE }}</i></span>
+</a>
+
+<footer class="pied">
+  <div class="cadre">
+    <div class="pied-haut">
+      <nav class="pied-nav" aria-label="Pied de page">
+        {% for f, nom in nav %}<a href="{{ f }}">{{ nom }}</a>{% endfor %}
+
+      </nav>
+      <ul class="pied-liens">
+        <li><a href="mailto:{{ site.courriel }}">{{ site.courriel }} <i class="rond rond-gris">{{ FLECHE }}</i></a></li>
+        <li><a href="{{ site.linkedin }}">LinkedIn <i class="rond rond-gris">{{ FLECHE }}</i></a></li>
+        <li><a href="{{ site.instagram }}">Instagram <i class="rond rond-gris">{{ FLECHE }}</i></a></li>
+        <li><a href="mentions-legales.html">Mentions légales <i class="rond rond-gris">{{ FLECHE }}</i></a></li>
+      </ul>
+    </div>
+    <p class="pied-geant" aria-hidden="true">athèleia</p>
+    <div class="pied-bas">
+      <span>{{ site.secteur }}</span>
+      <span>© <span class="annee">2026</span> Athèleia — Chloé Briançon</span>
+    </div>
+  </div>
+</footer>
+
+<div class="curseur" aria-hidden="true"><span></span></div>
+<script src="assets/main.js"></script>
+</body>
+</html>

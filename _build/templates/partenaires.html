@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block contenu %}
+{% set e = c.entete %}
+<header class="tete cadre">
+  <p class="tete-num">{{ e.etiquette }}</p>
+  <h1 class="lignes-titre titre-page">
+    {% for l in e.titre | lignes %}<span class="ligne"><span>{{ l }}</span></span>
+    {% endfor %}
+  </h1>
+  <p class="tete-intro">{{ e.intro | t }}</p>
+</header>
+
+<!-- MOSAÏQUE DES PARTENAIRES -->
+<section class="cadre">
+  <ul class="mosaique">
+    {% for p in c.liste %}
+    {% set grande = " t-grande" if p.grande else "" %}
+    {% set infos %}<span class="tuile-txt"><span class="tuile-sport">{{ p.sport }}</span><b>{{ p.nom }}</b></span>{% endset %}
+    {% if p.style == "photo" %}
+    <li class="tuile tuile-photo{{ grande }}">
+      {% if p.lien %}<a href="{{ p.lien }}" data-curseur="Voir">{% else %}<div class="tuile-in">{% endif %}
+        {{ img(p.image) }}
+        {{ infos }}
+        {% if p.lien %}<i class="rond rond-clair">{{ FLECHE }}</i></a>{% else %}</div>{% endif %}
+    </li>
+    {% elif p.style == "logo" %}
+    <li class="tuile tuile-logo{{ grande }}">
+      {{ img(p.image, p.nom) }}
+      {{ infos }}
+    </li>
+    {% else %}
+    <li class="tuile {{ 'tuile-sable' if p.style == 'sable' else 'tuile-nuit' }}{{ grande }}">
+      {% if p.mot %}<span class="tuile-grand-mot" aria-hidden="true">{{ p.mot }}</span>{% endif %}
+      {{ infos }}
+    </li>
+    {% endif %}
+    {% endfor %}
+    {% set tc = c.tuile_contact %}
+    <li class="tuile tuile-bleu">
+      <a href="contact.html" data-curseur="Écrire">
+        <span class="tuile-grand-mot" aria-hidden="true">{{ tc.mot }}</span>
+        <span class="tuile-txt"><span class="tuile-sport">{{ tc.etiquette }}</span><b>{{ tc.titre }}</b></span>
+        <i class="rond rond-clair">{{ FLECHE }}</i>
+      </a>
+    </li>
+  </ul>
+</section>
+
+{% set cas = c.cas %}
+<!-- CAS : NICE VOLLEY -->
+<section class="section cadre" id="nice-volley">
+  <div class="cas-tete">
+    <h2 class="titre-large">{{ cas.titre | t }}</h2>
+    <p class="intro">{{ cas.intro | t }}</p>
+  </div>
+  <div class="galerie">
+    {% for ph in cas.photos %}
+    <figure class="g-{{ loop.index }}" data-curseur="Voir">{{ img(ph.image, ph.legende) }}{% if ph.legende %}<figcaption>{{ ph.legende }}</figcaption>{% endif %}</figure>
+    {% endfor %}
+  </div>
+  <figure class="citation citation-nuit">
+    <blockquote>
+      <p>« {{ cas.citation | t }} »</p>
+    </blockquote>
+    <figcaption><span class="avatar-ini" aria-hidden="true">{{ cas.auteur | initiales }}</span><span><b>{{ cas.auteur }}</b>{{ cas.role }}</span></figcaption>
+  </figure>
+</section>
+
+<!-- PROJETS D'ATHLÈTES -->
+<section class="section cadre">
+  <h2 class="titre-large">{{ c.projets.titre | t }}</h2>
+  <div class="projets">
+    {% for pr in c.projets.liste %}
+    <article class="projet"{% if pr.ancre %} id="{{ pr.ancre }}"{% endif %}>
+      <div class="projet-img">{{ img(pr.image, pr.titre) }}</div>
+      <p class="tuile-sport">{{ pr.etiquette }}</p>
+      <h3>{{ pr.titre | t }}</h3>
+      <p>{{ pr.texte | t }}</p>
+      {% if pr.bouton and pr.lien %}<a class="pilule pilule-sombre petit" href="{{ pr.lien }}"><span>{{ pr.bouton }}</span><i>{{ FLECHE }}</i></a>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

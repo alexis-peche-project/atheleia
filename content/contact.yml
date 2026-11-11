@@ -1,0 +1,15 @@
+seo:
+  titre: Contact — Athèleia
+  description: Parlez de votre projet de sponsoring, de mécénat ou de partenariat sportif avec Athèleia.
+entete:
+  etiquette: 04 — Contact
+  titre: 'Construisons votre
+
+    *prochain* partenariat.'
+intro: Vous avez déjà un club en tête, ou simplement l'envie de vous lancer sans savoir par où commencer ? Racontez-moi votre projet.
+message_accueil: Bonjour 👋 Quelques questions rapides, et je reviens vers vous avec une première piste.
+types_projet:
+- Sponsoring sportif
+- Mécénat
+- Partenariat
+- Je ne sais pas encore

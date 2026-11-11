@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block contenu %}
+{% set e = c.entete %}
+<header class="tete cadre">
+  <p class="tete-num">{{ e.etiquette }}</p>
+  <h1 class="lignes-titre titre-page">
+    {% for l in e.titre | lignes %}<span class="ligne"><span>{{ l }}</span></span>
+    {% endfor %}
+  </h1>
+  <p class="tete-intro">{{ e.intro | t }}</p>
+</header>
+
+<!-- LES QUATRE TEMPS -->
+<section class="section cadre">
+  <h2 class="titre-large">{{ c.role.titre | t }}</h2>
+  <div class="cartes">
+    {% for carte in c.role.cartes %}
+    <article class="carte">
+      <span class="num" aria-hidden="true">{{ "%02d" | format(loop.index) }}</span>
+      <div class="carte-img">{{ img(carte.image, carte.titre) }}</div>
+      <h3>{{ carte.titre }}</h3>
+      <p>{{ carte.texte | t }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CE QUE CE N'EST PAS -->
+<section class="non-bloc">
+  <div class="cadre non-grille">
+    <h2 class="titre-large">{{ c.non.titre | t }}</h2>
+    <ul class="non">
+      {% for phrase in c.non.phrases %}
+      {% if phrase.startswith("Non,") %}
+      <li><b>Non,</b>{{ phrase[4:] }}</li>
+      {% else %}
+      <li>{{ phrase | t }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- LA MÉTHODE EN CARTES EMPILÉES -->
+<section class="section cadre" id="methode">
+  <h2 class="titre-large">{{ c.methode.titre | t }}</h2>
+  <ol class="pile">
+    {% for etape in c.methode.etapes %}
+    <li class="pile-carte c{{ (loop.index0 % 7) + 1 }}" style="--i:{{ loop.index0 }}"><span class="pile-num">{{ "%02d" | format(loop.index) }}</span><div><h3>{{ etape.titre }}</h3><p>{{ etape.texte | t }}</p></div></li>
+    {% endfor %}
+  </ol>
+</section>
+
+{% set g = c.gains %}
+<!-- LE GAIN -->
+<section class="section cadre gain">
+  <div class="gain-cote">
+    <h2 class="titre-large">{{ g.titre | t }}</h2>
+    <div class="gain-img">{{ img(g.image, g.image_alt) }}</div>
+    <a class="pilule pilule-sombre" href="contact.html"><span>{{ g.bouton }}</span><i>{{ FLECHE }}</i></a>
+  </div>
+  <ul class="gains">
+    {% for point in g.points %}
+    <li><span class="g-num">{{ "%02d" | format(loop.index) }}</span><b>{{ point.titre }}</b><span>{{ point.texte | t }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

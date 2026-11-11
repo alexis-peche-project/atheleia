@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block contenu %}
+<header class="tete cadre">
+  <h1 class="lignes-titre titre-page"><span class="ligne"><span>Mentions légales</span></span></h1>
+</header>
+<section class="cadre legal">
+  <h2>Éditrice du site</h2>
+  <p>{{ c.editrice | t }}<br>SIRET : {% if c.siret %}{{ c.siret }}{% else %}<mark>à compléter</mark>{% endif %}<br>Adresse : {% if c.adresse %}{{ c.adresse | t }}{% else %}<mark>à compléter</mark>{% endif %}<br>Courriel : <a href="mailto:{{ site.courriel }}">{{ site.courriel }}</a></p>
+  <p>Directrice de la publication : {{ c.directrice }}.</p>
+  <h2>Hébergement</h2>
+  <p>{{ c.hebergement | t }}</p>
+  <h2>Données personnelles</h2>
+  {% for d in c.donnees %}
+  <p>{{ d | t }}</p>
+  {% endfor %}
+  <h2>Crédits</h2>
+  <p>{{ c.credits | t }}</p>
+</section>
+{% endblock %}
