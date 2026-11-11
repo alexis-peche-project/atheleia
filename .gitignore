@@ -2,3 +2,5 @@ _site/
 _sources/
 .DS_Store
 __pycache__/
+# pages générées par _build/build.py (publiées par GitHub Actions)
+/*.html
