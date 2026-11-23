@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+{% if not site.ouvert %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <title>{{ seo.titre }}</title>
 <meta name="description" content="{{ seo.description }}">
 <meta property="og:title" content="{{ seo.titre }}">
