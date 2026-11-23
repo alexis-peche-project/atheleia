@@ -12,7 +12,8 @@
 <meta name="view-transition" content="same-origin">
 <link rel="icon" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
-<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="{{ classe }}">
@@ -24,7 +25,7 @@
   <div class="cadre entete-in">
     <a class="marque" href="index.html" aria-label="Athèleia, accueil">
       <img src="assets/img/sceau.webp" alt="" width="40" height="40">
-      <span>athèleia</span>
+      <span>Athèleia</span>
     </a>
     <nav id="menu" class="menu" aria-label="Navigation principale">
 {% for f, nom in nav if f != "contact.html" %}
@@ -59,7 +60,7 @@
         <li><a href="mentions-legales.html">Mentions légales <i class="rond rond-gris">{{ FLECHE }}</i></a></li>
       </ul>
     </div>
-    <p class="pied-geant" aria-hidden="true">athèleia</p>
+    <p class="pied-geant" aria-hidden="true">Athèleia</p>
     <div class="pied-bas">
       <span>{{ site.secteur }}</span>
       <span>© <span class="annee">2026</span> Athèleia — Chloé Briançon</span>
