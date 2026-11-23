@@ -377,7 +377,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--bordea
 .pied-liens{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .pied-liens a{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500}
 .pied-liens a:hover .rond{transform:translateX(4px);background:var(--bleu)}
-.pied-geant{font-family:var(--script);font-weight:700;font-size:clamp(120px,32vw,540px);line-height:.85;letter-spacing:0;color:#EAE8E4;margin:20px 0 26px;white-space:nowrap}
+.pied-geant{font-family:var(--script);font-weight:700;font-size:clamp(80px,16vw,260px);line-height:.95;letter-spacing:0;color:#EAE8E4;margin:20px 0 26px;white-space:nowrap}
 .pied-bas{display:flex;justify-content:space-between;gap:20px;padding-top:22px;border-top:1px solid #2F3A5A;font-size:14px;color:#AEB8CF}
 
 /* ---------- curseur (souris uniquement) ---------- */
